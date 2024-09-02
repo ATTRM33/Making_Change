@@ -36,7 +36,7 @@ public class Purse {
         StringBuilder sb = new StringBuilder("The Purse Contains:\n");
         for (Map.Entry<MoneyType, Integer> entry : cash.entrySet()) {
             sb.append(entry.getValue())
-                    .append(" x ")
+                    .append(" ")
                     .append(entry.getKey().name())
                     .append(" (")
                     .append(entry.getKey().form())

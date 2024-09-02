@@ -15,4 +15,31 @@ public class Register {
             new MoneyType("Nickel", 0.05, "coin", "nickel.png"),
             new MoneyType("Penny", 0.01, "coin", "penny.png")
     );
+
+    public Purse makeChange(double amt) {
+        Purse purse = new Purse();
+
+        for (MoneyType moneyType : MONEY) {
+
+            int count = (int)(amt / moneyType.amt());
+
+            if (count > 0) {
+                purse.add(moneyType, count);
+                amt -= count * moneyType.amt();
+            }
+        }
+        return purse;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter an amount: ");
+        double amt = sc.nextDouble();
+
+        Register register = new Register();
+        Purse purse = register.makeChange(amt);
+        System.out.println(purse);
+
+        sc.close();
+    }
 }
