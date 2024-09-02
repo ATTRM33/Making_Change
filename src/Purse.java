@@ -33,16 +33,18 @@ public class Purse {
 
     @Override
     public String toString() {
+
+        if(cash.isEmpty()) {
+            System.out.println("Purse is empty");
+        }
+
         StringBuilder sb = new StringBuilder("The Purse Contains:\n");
+
         for (Map.Entry<MoneyType, Integer> entry : cash.entrySet()) {
             sb.append(entry.getValue())
                     .append(" ")
                     .append(entry.getKey().name())
-                    .append(" (")
-                    .append(entry.getKey().form())
-                    .append(") - $")
-                    .append(entry.getKey().amt())
-                    .append(" each\n");
+                    .append("\n");
         }
         sb.append("Total Value: $").append(getValue());
         return sb.toString();
