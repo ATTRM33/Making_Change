@@ -30,5 +30,22 @@ public class Purse {
         //the number of entries and returns the sum of all values
         return cash.entrySet().stream().mapToDouble(entry -> entry.getKey().amt() * entry.getValue()).sum();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("The Purse Contains:\n");
+        for (Map.Entry<MoneyType, Integer> entry : cash.entrySet()) {
+            sb.append(entry.getValue())
+                    .append(" x ")
+                    .append(entry.getKey().name())
+                    .append(" (")
+                    .append(entry.getKey().form())
+                    .append(") - $")
+                    .append(entry.getKey().amt())
+                    .append(" each\n");
+        }
+        sb.append("Total Value: $").append(getValue());
+        return sb.toString();
+    }
 }
 
