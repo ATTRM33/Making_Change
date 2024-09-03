@@ -1,23 +1,23 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RegisterPanel extends JPanel {
-    private Register register;
-    private JPanel inputPanel;
-    private JTextField input;
-    private PursePanel changePanel;
+    private Register register = new Register();
+    private JPanel inputPanel = new JPanel();
+    private JTextField input = new JTextField(10);
+    private PursePanel changePanel = new PursePanel();
 
     public RegisterPanel() {
-        this.register = new Register();
-        this.inputPanel = new JPanel();
-        this.input = new JTextField();
-        this.changePanel = new PursePanel();
-
-        inputPanel.add(new JLabel("Enter an Amount:"));
+        setLayout(new BorderLayout()); // Use BorderLayout for better control over layout
+        inputPanel.add(new JLabel("Enter Amount:"));
         inputPanel.add(input);
+        add(inputPanel, BorderLayout.NORTH);
 
         input.addActionListener(new InputListener());
+
+        add(changePanel, BorderLayout.CENTER);
 
     }
 
