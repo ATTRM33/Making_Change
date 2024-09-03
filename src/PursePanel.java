@@ -7,7 +7,8 @@ public class PursePanel extends JPanel {
     private Purse purse = new Purse();
 
     public PursePanel() {
-        this.purse = new Purse(); // Initialize with an empty purse
+        // Initialize with an empty purse
+        this.purse = new Purse();
     }
 
     public void setPurse(Purse purse) {
