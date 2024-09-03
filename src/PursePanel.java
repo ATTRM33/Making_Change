@@ -29,7 +29,7 @@ public class PursePanel extends JPanel {
                 g.drawString(entry.getValue() + " X " + moneyType.name(), 550, y + 30);
                 y += 60;
             }
-            g.drawString("Total Value: $" + purse.getValue(), 550, y= 600);
+            g.drawString("Total Value: $" + purse.getValue(), 550, y= 400);
         }
     }
 }
