@@ -14,10 +14,12 @@ public class Purse {
     }
 
     public double remove(MoneyType type, int num) {
-        int count = cash.getOrDefault(type, 0); //current count of money type in the purse
+        //current count of money type in the purse
+        int count = cash.getOrDefault(type, 0);
 
         if (count < num) {
-            count = num; // if value entered is larger than the amt in the purse then count is equal to number
+            // if value entered is larger than the amt in the purse then count is equal to number
+            count = num;
         }
         if (num > 0) {
             cash.put(type, count - num);
