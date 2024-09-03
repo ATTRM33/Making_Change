@@ -17,15 +17,17 @@ public class Register {
     );
 
     public Purse makeChange(double amt) {
+        int cents = (int) Math.round(amt * 100);
         Purse purse = new Purse();
 
-        for (MoneyType moneyType : MONEY) {
+        for (MoneyType money : MONEY) {
 
-            int count = (int)(amt / moneyType.amt());
+            int moneyCents = (int) Math.round(money.amt() * 100);
+            int count = cents / moneyCents;
 
             if (count > 0) {
-                purse.add(moneyType, count);
-                amt -= count * moneyType.amt();
+                purse.add(money, count);
+                cents -= count * moneyCents;
             }
         }
         return purse;

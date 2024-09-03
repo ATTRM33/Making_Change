@@ -26,6 +26,7 @@ public class PursePanel extends JPanel {
                 Image image = icon.getImage();
 
                 g.drawImage(image, 10, y, this);
+                g.drawString(entry.getValue() + " X " + moneyType.name(), 550, y + 30);
                 y += 60;
             }
             g.drawString("Total Value: $" + purse.getValue(), 550, y= 600);
