@@ -10,7 +10,7 @@ public class RegisterPanel extends JPanel {
     private PursePanel changePanel = new PursePanel();
 
     public RegisterPanel() {
-        setLayout(new BorderLayout()); // Use BorderLayout for better control over layout
+        setLayout(new BorderLayout());
         inputPanel.add(new JLabel("Enter Amount:"));
         inputPanel.add(input);
         add(inputPanel, BorderLayout.WEST);
