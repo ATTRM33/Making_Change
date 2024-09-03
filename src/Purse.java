@@ -1,5 +1,6 @@
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Collections;
 
 public class Purse {
     private Map<MoneyType, Integer> cash;
@@ -48,6 +49,10 @@ public class Purse {
         }
         sb.append("Total Value: $").append(getValue());
         return sb.toString();
+    }
+
+    public Map<MoneyType, Integer> getCash() {
+        return Collections.unmodifiableMap(cash);
     }
 }
 
