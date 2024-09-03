@@ -13,7 +13,7 @@ public class RegisterPanel extends JPanel {
         setLayout(new BorderLayout()); // Use BorderLayout for better control over layout
         inputPanel.add(new JLabel("Enter Amount:"));
         inputPanel.add(input);
-        add(inputPanel, BorderLayout.NORTH);
+        add(inputPanel, BorderLayout.WEST);
 
         input.addActionListener(new InputListener());
 
