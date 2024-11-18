@@ -38,7 +38,7 @@ This lets me have different ways to make change without messing with the main Re
 
 ### For the Strategy Pattern:
 - Created `ChangeStrategy.java` - Interface for different ways to make change
-- Created `DefaultChangeStrategy.java` - The current way we make change
+- Created `DefaultChangeStrategy.java` - The current way to make change
 - Updated `Register.java` - Now uses strategies to make change
 
 ## How They Work Together
