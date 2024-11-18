@@ -9,7 +9,7 @@ A simple java program that allows the user to enter an amount and the program wi
 # Design Pattern Implementation
 
 ## What I Did
-I added two design patterns to my money register project from Lab 3:
+I added two design patterns to my money register project from Lab 1:
 
 ### Observer Pattern
 This pattern helps my GUI automatically update whenever money is added or removed from the purse. It's like having the purse "notify" the display that it needs to refresh - better than having to manually update everything.
