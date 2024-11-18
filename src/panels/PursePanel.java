@@ -16,6 +16,7 @@ public class PursePanel extends JPanel implements PurseObserver {
     public PursePanel() {
 
         this.purse = new Purse();
+
         //observer for purse
         this.purse.addObserver(this);
     }

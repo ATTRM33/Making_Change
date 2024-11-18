@@ -7,12 +7,10 @@ import observer.PurseObserver;
 
 public class Purse {
     private Map<MoneyType, Integer> cash;
-
     private List<PurseObserver> observers;
 
     public Purse() {
         this.cash = new HashMap<>();
-
         this.observers = new ArrayList<>();
     }
 
@@ -31,6 +29,8 @@ public class Purse {
         }
         if (num > 0) {
             cash.put(type, count - num);
+
+            // calls new observer pattern
             notifyObservers();
         }
         return num * type.amt();

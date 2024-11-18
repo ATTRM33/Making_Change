@@ -1,7 +1,8 @@
 package money;
 
-import commands.AddMoneyCommand;
 import purse.Purse;
+import strategy.ChangeStrategy;
+import strategy.DefaultChangeStrategy;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,23 +22,23 @@ public class Register {
             new MoneyType("Penny", 0.01, "coin", "penny.png")
     );
 
+    // new strategy object
+    private ChangeStrategy changeStrategy;
+
+    // constructor
+    public Register() {
+        this.changeStrategy = new DefaultChangeStrategy(MONEY);
+    }
+
+    public void setChangeStrategy(ChangeStrategy changeStrategy) {
+        this.changeStrategy = changeStrategy;
+    }
+
+    //updated makeChange to implement strategy
     public Purse makeChange(double amt) {
-        int cents = (int) Math.round(amt * 100);
-        Purse purse = new Purse();
 
-        for (MoneyType money : MONEY) {
+        return changeStrategy.makeChange(amt);
 
-            int moneyCents = (int) Math.round(money.amt() * 100);
-            int count = cents / moneyCents;
-
-            if (count > 0) {
-                //implementation of command
-                AddMoneyCommand addCommand = new AddMoneyCommand(purse, money, count);
-                addCommand.execute();
-                cents -= count * moneyCents;
-            }
-        }
-        return purse;
     }
 
     public static void main(String[] args) {
