@@ -1,3 +1,6 @@
+import money.MoneyType;
+import purse.Purse;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;

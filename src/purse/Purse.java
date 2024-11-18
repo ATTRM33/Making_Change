@@ -1,6 +1,9 @@
+package purse;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
+import money.MoneyType;
 
 public class Purse {
     private Map<MoneyType, Integer> cash;
@@ -38,10 +41,10 @@ public class Purse {
     public String toString() {
 
         if(cash.isEmpty()) {
-            System.out.println("Purse is empty");
+            System.out.println("purse.Purse is empty");
         }
 
-        StringBuilder sb = new StringBuilder("The Purse Contains:\n");
+        StringBuilder sb = new StringBuilder("The purse.Purse Contains:\n");
 
         for (Map.Entry<MoneyType, Integer> entry : cash.entrySet()) {
             sb.append(entry.getValue())
