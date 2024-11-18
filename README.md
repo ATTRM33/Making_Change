@@ -13,6 +13,7 @@ I added two design patterns to my money register project from Lab 1:
 
 ### Observer Pattern
 This pattern helps my GUI automatically update whenever money is added or removed from the purse. It's like having the purse "notify" the display that it needs to refresh - better than having to manually update everything.
+
 **Advantages:**
 - Provides automatic updates to the GUI when the Purse content changes
 - Eliminates need for manual refresh calls
@@ -20,6 +21,7 @@ This pattern helps my GUI automatically update whenever money is added or remove
 
 ### Strategy Pattern
 This lets me have different ways to make change without messing with the main Register class. Right now I just have one strategy (using the biggest bills/coins first), but I could easily add other ways to make change later. This also helps to separate
+
 **Advantages:**
 - Separates change-making from the Register class
 - Allows for easy addition of new change-making strategies
