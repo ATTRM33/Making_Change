@@ -1,19 +1,24 @@
 package purse;
 
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Collections;
+import java.util.*;
+
 import money.MoneyType;
+import observer.PurseObserver;
 
 public class Purse {
     private Map<MoneyType, Integer> cash;
 
+    private List<PurseObserver> observers;
+
     public Purse() {
         this.cash = new HashMap<>();
+
+        this.observers = new ArrayList<>();
     }
 
     public void add(MoneyType type, int num) {
         cash.put(type, cash.getOrDefault(type, 0) + num);
+        notifyObservers();
     }
 
     public double remove(MoneyType type, int num) {
@@ -26,6 +31,7 @@ public class Purse {
         }
         if (num > 0) {
             cash.put(type, count - num);
+            notifyObservers();
         }
         return num * type.amt();
     }
@@ -44,7 +50,7 @@ public class Purse {
             System.out.println("purse.Purse is empty");
         }
 
-        StringBuilder sb = new StringBuilder("The purse.Purse Contains:\n");
+        StringBuilder sb = new StringBuilder("The Purse Contains:\n");
 
         for (Map.Entry<MoneyType, Integer> entry : cash.entrySet()) {
             sb.append(entry.getValue())
@@ -58,6 +64,23 @@ public class Purse {
 
     public Map<MoneyType, Integer> getCash() {
         return Collections.unmodifiableMap(cash);
+    }
+
+    //observers
+    public void addObserver(PurseObserver observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(PurseObserver observer) {
+        observers.remove(observer);
+    }
+
+    private void notifyObservers() {
+
+        //notify about the state of the purse
+        for (PurseObserver observer : observers) {
+            observer.updatePurse(Collections.unmodifiableMap(cash), getValue());
+        }
     }
 }
 

@@ -1,3 +1,5 @@
+import panels.RegisterPanel;
+
 import javax.swing.*;
 
 public class MakingChange {

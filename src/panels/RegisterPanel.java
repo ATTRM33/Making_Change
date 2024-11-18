@@ -1,5 +1,7 @@
-import purse.Purse;
+package panels;
 
+import purse.Purse;
+import money.Register;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

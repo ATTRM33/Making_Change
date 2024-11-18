@@ -8,7 +8,7 @@ public class AddMoneyCommand implements MoneyCommand{
     private MoneyType type;
     private int amount;
 
-    public void addMoney(Purse purse, MoneyType type, int amount){
+    public AddMoneyCommand(Purse purse, MoneyType type, int amount){
         this.purse = purse;
         this.type = type;
         this.amount = amount;

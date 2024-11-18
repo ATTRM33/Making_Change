@@ -1,4 +1,6 @@
-import money.MoneyType;
+package money;
+
+import commands.AddMoneyCommand;
 import purse.Purse;
 
 import java.util.Arrays;
@@ -29,7 +31,9 @@ public class Register {
             int count = cents / moneyCents;
 
             if (count > 0) {
-                purse.add(money, count);
+                //implementation of command
+                AddMoneyCommand addCommand = new AddMoneyCommand(purse, money, count);
+                addCommand.execute();
                 cents -= count * moneyCents;
             }
         }
